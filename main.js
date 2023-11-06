@@ -1,6 +1,14 @@
-function tocaSomFeliz(){
-    document.querySelector("#som_tecla_feliz").play();
+function tocaSom(idElementoAudio){
+    document.querySelector(idElementoAudio).play();
 }
-const listadeTeclas = document.querySelectorAll(".tecla");
+const listaDeTeclas = document.querySelectorAll(".tecla");
 
-listadeTeclas[2].onclick = tocaSomFeliz
+let contador = 0;
+while(contador < listaDeTeclas.length){
+    const efeito = listaDeTeclas[contador].classList[1];
+    const idAudio = "som_"+efeito;
+    listaDeTeclas[contador].conclick = function (){
+        tocaSom(idAudio)
+    }
+    contador = contador + 1;
+}
